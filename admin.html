@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administration - Élégance Boutique</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Administration - Élégance Boutique | سعيدة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -13,23 +13,9 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --primary: #1e2a3a;
-            --secondary: #e67e22;
-            --accent: #f39c12;
-            --success: #27ae60;
-            --danger: #e74c3c;
-            --warning: #f39c12;
-            --gray-light: #f8f9fa;
-            --gray: #6c757d;
-            --dark: #212529;
-            --white: #ffffff;
-        }
-
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            min-height: 100vh;
+            background: #f5f5f5;
         }
 
         .admin-container {
@@ -40,14 +26,16 @@
 
         /* Header */
         .admin-header {
-            background: var(--primary);
+            background: #1e2a3a;
             color: white;
-            padding: 1rem 2rem;
+            padding: 1.5rem 2rem;
             border-radius: 15px;
             margin-bottom: 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
         .admin-header h1 {
@@ -55,28 +43,65 @@
         }
 
         .admin-header h1 i {
-            color: var(--secondary);
+            color: #e67e22;
             margin-right: 0.5rem;
         }
 
-        .view-site-btn {
-            background: var(--secondary);
-            color: white;
-            padding: 0.5rem 1rem;
+        /* Buttons */
+        .btn {
+            padding: 0.7rem 1.5rem;
+            border: none;
             border-radius: 10px;
-            text-decoration: none;
-            transition: 0.3s;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
         }
 
-        .view-site-btn:hover {
-            background: var(--accent);
+        .btn-primary {
+            background: #e67e22;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #d35400;
             transform: translateY(-2px);
+        }
+
+        .btn-danger {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #c0392b;
+        }
+
+        .btn-success {
+            background: #27ae60;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #229954;
+        }
+
+        .btn-warning {
+            background: #f39c12;
+            color: white;
+        }
+
+        .btn-warning:hover {
+            background: #e67e22;
         }
 
         /* Stats Cards */
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 1.5rem;
             margin-bottom: 2rem;
         }
@@ -85,147 +110,115 @@
             background: white;
             padding: 1.5rem;
             border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: 0.3s;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
         }
 
         .stat-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         }
 
-        .stat-info h3 {
-            font-size: 0.9rem;
-            color: var(--gray);
+        .stat-card h3 {
+            font-size: 0.85rem;
+            color: #6c757d;
             margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .stat-number {
+        .stat-card .number {
             font-size: 2rem;
             font-weight: 700;
-            color: var(--primary);
+            color: #e67e22;
         }
 
-        .stat-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--secondary), var(--accent));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-        }
-
-        /* Actions Bar */
-        .actions-bar {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 15px;
-            margin-bottom: 2rem;
+        /* Tabs */
+        .tabs {
             display: flex;
             gap: 1rem;
+            margin-bottom: 2rem;
             flex-wrap: wrap;
         }
 
-        .btn {
-            padding: 0.7rem 1.5rem;
+        .tab-btn {
+            padding: 0.8rem 1.8rem;
+            background: white;
             border: none;
             border-radius: 10px;
             cursor: pointer;
             font-weight: 600;
-            transition: 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
+            transition: all 0.3s ease;
+            font-size: 1rem;
         }
 
-        .btn-primary {
-            background: linear-gradient(135deg, var(--secondary), var(--accent));
+        .tab-btn i {
+            margin-right: 0.5rem;
+        }
+
+        .tab-btn.active {
+            background: #e67e22;
             color: white;
         }
 
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(230,126,34,0.3);
-        }
-
-        .btn-success {
-            background: var(--success);
-            color: white;
-        }
-
-        .btn-danger {
-            background: var(--danger);
-            color: white;
-        }
-
-        .btn-warning {
-            background: var(--warning);
-            color: white;
-        }
-
-        /* Products Table */
-        .products-table-container {
+        /* Tables */
+        .tab-content {
+            display: none;
             background: white;
             border-radius: 15px;
+            padding: 1.5rem;
             overflow-x: auto;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
-        .products-table {
+        .tab-content.active {
+            display: block;
+        }
+
+        table {
             width: 100%;
             border-collapse: collapse;
         }
 
-        .products-table th,
-        .products-table td {
+        th, td {
             padding: 1rem;
             text-align: left;
             border-bottom: 1px solid #eee;
         }
 
-        .products-table th {
-            background: var(--primary);
-            color: white;
+        th {
+            background: #f8f9fa;
             font-weight: 600;
+            color: #1e2a3a;
         }
 
-        .products-table tr:hover {
-            background: var(--gray-light);
+        tr:hover {
+            background: #f8f9fa;
         }
 
-        .product-image {
+        .product-img {
             width: 50px;
             height: 50px;
             object-fit: cover;
             border-radius: 10px;
         }
 
-        .action-buttons {
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        .action-buttons button {
+        .status {
             padding: 0.3rem 0.8rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: 0.3s;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
         }
 
-        .edit-btn {
-            background: var(--warning);
+        .status.pending {
+            background: #f39c12;
             color: white;
         }
 
-        .delete-btn {
-            background: var(--danger);
+        .status.confirmed {
+            background: #27ae60;
             color: white;
         }
 
@@ -238,9 +231,9 @@
             width: 100%;
             height: 100%;
             background: rgba(0,0,0,0.5);
-            z-index: 1000;
             justify-content: center;
             align-items: center;
+            z-index: 1000;
         }
 
         .modal.active {
@@ -251,36 +244,36 @@
             background: white;
             padding: 2rem;
             border-radius: 20px;
-            max-width: 500px;
             width: 90%;
+            max-width: 500px;
             max-height: 90vh;
             overflow-y: auto;
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
+            position: relative;
         }
 
         .close-modal {
-            background: none;
-            border: none;
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
             font-size: 1.5rem;
             cursor: pointer;
-            color: var(--gray);
+            color: #6c757d;
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover {
+            color: #e74c3c;
         }
 
         .form-group {
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
         }
 
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 500;
-            color: var(--primary);
+            color: #1e2a3a;
         }
 
         .form-group input,
@@ -291,13 +284,14 @@
             border: 1px solid #ddd;
             border-radius: 10px;
             font-family: inherit;
+            transition: border-color 0.3s;
         }
 
         .form-group input:focus,
         .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--secondary);
+            border-color: #e67e22;
         }
 
         /* Toast */
@@ -305,7 +299,7 @@
             position: fixed;
             bottom: 2rem;
             right: 2rem;
-            background: var(--primary);
+            background: #1e2a3a;
             color: white;
             padding: 1rem 1.5rem;
             border-radius: 50px;
@@ -314,21 +308,47 @@
             gap: 0.5rem;
             z-index: 1002;
             transform: translateX(400px);
-            transition: 0.3s;
+            transition: transform 0.3s ease;
         }
 
         .toast.show {
             transform: translateX(0);
         }
 
+        .toast i {
+            font-size: 1.2rem;
+        }
+
+        /* Loading */
+        .loading {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .loading i {
+            font-size: 2rem;
+            color: #e67e22;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
             .admin-container {
                 padding: 1rem;
             }
             
-            .products-table th,
-            .products-table td {
+            th, td {
                 padding: 0.5rem;
+                font-size: 0.8rem;
+            }
+            
+            .btn {
+                padding: 0.5rem 1rem;
                 font-size: 0.8rem;
             }
         }
@@ -336,84 +356,110 @@
 </head>
 <body>
     <div class="admin-container">
+        <!-- Header -->
         <div class="admin-header">
-            <h1><i class="fas fa-crown"></i> Administration Élégance</h1>
-            <a href="index.html" class="view-site-btn" target="_blank">
-                <i class="fas fa-eye"></i> Voir le site
-            </a>
+            <h1><i class="fas fa-crown"></i> Administration Élégance | سعيدة</h1>
+            <div>
+                <a href="index.html" target="_blank" class="btn btn-primary">
+                    <i class="fas fa-eye"></i> Voir le site
+                </a>
+                <button class="btn btn-success" onclick="exportData()">
+                    <i class="fas fa-download"></i> Exporter
+                </button>
+            </div>
         </div>
 
-        <!-- Stats Cards -->
+        <!-- Statistics -->
         <div class="stats-grid">
             <div class="stat-card">
-                <div class="stat-info">
-                    <h3>Total Produits</h3>
-                    <div class="stat-number" id="totalProducts">0</div>
-                </div>
-                <div class="stat-icon">
-                    <i class="fas fa-box"></i>
-                </div>
+                <h3>📦 Total Produits</h3>
+                <div class="number" id="totalProducts">0</div>
             </div>
             <div class="stat-card">
-                <div class="stat-info">
-                    <h3>Commandes (aujourd'hui)</h3>
-                    <div class="stat-number" id="todayOrders">0</div>
-                </div>
-                <div class="stat-icon">
-                    <i class="fas fa-shopping-cart"></i>
-                </div>
+                <h3>⏳ Commandes en attente</h3>
+                <div class="number" id="pendingOrders">0</div>
             </div>
             <div class="stat-card">
-                <div class="stat-info">
-                    <h3>Revenus (mois)</h3>
-                    <div class="stat-number" id="monthRevenue">0 DA</div>
-                </div>
-                <div class="stat-icon">
-                    <i class="fas fa-chart-line"></i>
-                </div>
+                <h3>✅ Commandes totales</h3>
+                <div class="number" id="totalOrders">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>💰 Revenus totaux</h3>
+                <div class="number" id="totalRevenue">0 DA</div>
             </div>
         </div>
 
-        <!-- Actions Bar -->
-        <div class="actions-bar">
-            <button class="btn btn-primary" onclick="openAddModal()">
-                <i class="fas fa-plus"></i> Ajouter un produit
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab-btn active" onclick="showTab('products')">
+                <i class="fas fa-box"></i> Produits
             </button>
-            <button class="btn btn-success" onclick="exportData()">
-                <i class="fas fa-download"></i> Exporter les données
-            </button>
-            <button class="btn btn-warning" onclick="importData()">
-                <i class="fas fa-upload"></i> Importer les données
+            <button class="tab-btn" onclick="showTab('orders')">
+                <i class="fas fa-shopping-cart"></i> Commandes
             </button>
         </div>
 
-        <!-- Products Table -->
-        <div class="products-table-container">
-            <table class="products-table">
-                <thead>
-                    <tr>
-                        <th>Image</th>
-                        <th>Nom</th>
-                        <th>Prix (DA)</th>
-                        <th>Badge</th>
-                        <th>Note</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody id="productsTableBody">
-                    <!-- Products will be inserted here -->
-                </tbody>
-            </table>
+        <!-- Products Tab -->
+        <div id="productsTab" class="tab-content active">
+            <div style="margin-bottom: 1rem;">
+                <button class="btn btn-primary" onclick="openAddProductModal()">
+                    <i class="fas fa-plus"></i> Ajouter un produit
+                </button>
+            </div>
+            <div id="productsLoading" class="loading" style="display: none;">
+                <i class="fas fa-spinner"></i> Chargement...
+            </div>
+            <div style="overflow-x: auto;">
+                <table id="productsTable">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Nom</th>
+                            <th>Prix (DA)</th>
+                            <th>Badge</th>
+                            <th>Note</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productsTableBody">
+                        <tr><td colspan="6" style="text-align:center;">Chargement...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Orders Tab -->
+        <div id="ordersTab" class="tab-content">
+            <div id="ordersLoading" class="loading" style="display: none;">
+                <i class="fas fa-spinner"></i> Chargement...
+            </div>
+            <div style="overflow-x: auto;">
+                <table id="ordersTable">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Client</th>
+                            <th>Téléphone</th>
+                            <th>Adresse</th>
+                            <th>Articles</th>
+                            <th>Total</th>
+                            <th>Statut</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ordersTableBody">
+                        <tr><td colspan="8" style="text-align:center;">Chargement...</td></tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
-    <!-- Add/Edit Product Modal -->
+    <!-- Product Modal -->
     <div class="modal" id="productModal">
         <div class="modal-content">
-            <div class="modal-header">
-                <h2 id="modalTitle">Ajouter un produit</h2>
-                <button class="close-modal" onclick="closeModal()">&times;</button>
-            </div>
+            <span class="close-modal" onclick="closeModal('productModal')">&times;</span>
+            <h2 id="productModalTitle" style="margin-bottom: 1.5rem;">Ajouter un produit</h2>
             <form id="productForm">
                 <input type="hidden" id="productId">
                 <div class="form-group">
@@ -426,7 +472,7 @@
                 </div>
                 <div class="form-group">
                     <label>URL de l'image *</label>
-                    <input type="text" id="productImage" placeholder="https://picsum.photos/id/20/400/400 ou images/produit.jpg" required>
+                    <input type="text" id="productImage" placeholder="https://picsum.photos/id/20/400/400" required>
                 </div>
                 <div class="form-group">
                     <label>Badge</label>
@@ -449,12 +495,323 @@
         </div>
     </div>
 
-    
+    <!-- Toast -->
     <div class="toast" id="toastMsg">
         <i class="fas fa-check-circle"></i>
         <span>Message</span>
     </div>
 
-    <script src="admin.js"></script>
+    <script>
+        // ========== CONFIGURATION SUPABASE ==========
+        // ⚠️ IMPORTANT: Remplacez ces valeurs par celles de votre projet Supabase
+        const SUPABASE_URL = 'https://ovqrusuidqrptadbxlwu.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im92cXJ1c3VpZHFycHRhZGJ4bHd1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzI2NDMyMDAsImV4cCI6MjA0ODIxOTIwMH0'; // ⚠️ Remplacez par votre clé anon
+        
+        let supabase = null;
+        let products = [];
+        let orders = [];
+        
+        // ========== Initialisation ==========
+        async function initSupabase() {
+            try {
+                const { createClient } = await import('https://esm.sh/@supabase/supabase-js@2.39.0');
+                supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+                console.log('✅ Supabase connecté');
+                await loadAllData();
+            } catch (error) {
+                console.error('❌ Erreur connexion:', error);
+                showToast('Erreur de connexion à la base de données');
+            }
+        }
+        
+        async function loadAllData() {
+            await loadProducts();
+            await loadOrders();
+        }
+        
+        // ========== Produits ==========
+        async function loadProducts() {
+            if (!supabase) return;
+            
+            const tbody = document.getElementById('productsTableBody');
+            tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;"><i class="fas fa-spinner fa-spin"></i> Chargement...</td></tr>';
+            
+            try {
+                const { data, error } = await supabase
+                    .from('products')
+                    .select('*')
+                    .order('id');
+                
+                if (error) throw error;
+                
+                products = data || [];
+                renderProductsTable();
+                updateStats();
+            } catch (error) {
+                console.error('Erreur chargement produits:', error);
+                tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;color:red;">Erreur de chargement</td></tr>';
+            }
+        }
+        
+        function renderProductsTable() {
+            const tbody = document.getElementById('productsTableBody');
+            
+            if (!products || products.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;">Aucun produit</td></tr>';
+                return;
+            }
+            
+            tbody.innerHTML = products.map(p => `
+                <tr>
+                    <td><img src="${p.image}" class="product-img" onerror="this.src='https://picsum.photos/id/20/50/50'"></td>
+                    <td><strong>${escapeHtml(p.name)}</strong></td>
+                    <td>${p.price.toLocaleString()} DA</td>
+                    <td><span style="background:#e67e22;color:white;padding:2px 8px;border-radius:20px;font-size:0.8rem;">${p.badge || 'Nouveau'}</span></td>
+                    <td>${'⭐'.repeat(Math.floor(p.rating || 4.5))} ${p.rating || 4.5}</td>
+                    <td>
+                        <button class="btn btn-warning" style="padding:0.3rem 0.8rem;margin-right:5px;" onclick="editProduct(${p.id})">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn btn-danger" style="padding:0.3rem 0.8rem;" onclick="deleteProduct(${p.id})">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+        
+        // ========== Commandes ==========
+        async function loadOrders() {
+            if (!supabase) return;
+            
+            const tbody = document.getElementById('ordersTableBody');
+            tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;"><i class="fas fa-spinner fa-spin"></i> Chargement...</td></tr>';
+            
+            try {
+                const { data, error } = await supabase
+                    .from('orders')
+                    .select('*')
+                    .order('created_at', { ascending: false });
+                
+                if (error) throw error;
+                
+                orders = data || [];
+                renderOrdersTable();
+                updateStats();
+            } catch (error) {
+                console.error('Erreur chargement commandes:', error);
+                tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;color:red;">Erreur de chargement</td></tr>';
+            }
+        }
+        
+        function renderOrdersTable() {
+            const tbody = document.getElementById('ordersTableBody');
+            
+            if (!orders || orders.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;">Aucune commande</td></tr>';
+                return;
+            }
+            
+            tbody.innerHTML = orders.map(o => {
+                const date = new Date(o.created_at);
+                const formattedDate = date.toLocaleDateString('fr-DZ') + ' ' + date.toLocaleTimeString('fr-DZ', {hour:'2-digit', minute:'2-digit'});
+                const itemCount = o.items ? o.items.reduce((s, i) => s + (i.quantity || 1), 0) : 0;
+                
+                return `
+                    <tr>
+                        <td>${formattedDate}</td>
+                        <td><strong>${escapeHtml(o.customer_name || '—')}</strong></td>
+                        <td>${escapeHtml(o.customer_phone || '—')}</td>
+                        <td>${escapeHtml(o.customer_address || '—')}</td>
+                        <td>${itemCount} article${itemCount > 1 ? 's' : ''}</td>
+                        <td><strong>${(o.total || 0).toLocaleString()} DA</strong></td>
+                        <td>
+                            <span class="status ${o.status === 'confirmed' ? 'confirmed' : 'pending'}">
+                                ${o.status === 'confirmed' ? '✅ Confirmée' : '⏳ En attente'}
+                            </span>
+                        </td>
+                        <td>
+                            ${o.status !== 'confirmed' ? 
+                                `<button class="btn btn-success" style="padding:0.3rem 0.8rem;" onclick="confirmOrder(${o.id})">
+                                    <i class="fas fa-check"></i> Confirmer
+                                </button>` : 
+                                '<span style="color:#27ae60;">✓ Traitée</span>'
+                            }
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+        
+        // ========== Actions ==========
+        window.editProduct = async (id) => {
+            const product = products.find(p => p.id === id);
+            if (product) {
+                document.getElementById('productId').value = product.id;
+                document.getElementById('productName').value = product.name;
+                document.getElementById('productPrice').value = product.price;
+                document.getElementById('productImage').value = product.image;
+                document.getElementById('productBadge').value = product.badge || 'Nouveau';
+                document.getElementById('productRating').value = product.rating || 4.5;
+                document.getElementById('productModalTitle').textContent = '✏️ Modifier le produit';
+                document.getElementById('productModal').classList.add('active');
+            }
+        };
+        
+        window.deleteProduct = async (id) => {
+            if (confirm('⚠️ Êtes-vous sûr de vouloir supprimer ce produit ?')) {
+                try {
+                    const { error } = await supabase.from('products').delete().eq('id', id);
+                    if (error) throw error;
+                    showToast('✅ Produit supprimé avec succès');
+                    await loadProducts();
+                } catch (error) {
+                    console.error('Erreur suppression:', error);
+                    showToast('❌ Erreur lors de la suppression');
+                }
+            }
+        };
+        
+        window.confirmOrder = async (id) => {
+            if (confirm('Confirmer cette commande ?')) {
+                try {
+                    const { error } = await supabase.from('orders').update({ status: 'confirmed' }).eq('id', id);
+                    if (error) throw error;
+                    showToast('✅ Commande confirmée');
+                    await loadOrders();
+                } catch (error) {
+                    console.error('Erreur confirmation:', error);
+                    showToast('❌ Erreur lors de la confirmation');
+                }
+            }
+        };
+        
+        window.openAddProductModal = () => {
+            document.getElementById('productForm').reset();
+            document.getElementById('productId').value = '';
+            document.getElementById('productModalTitle').textContent = '➕ Ajouter un produit';
+            document.getElementById('productModal').classList.add('active');
+        };
+        
+        // ========== Statistiques ==========
+        function updateStats() {
+            document.getElementById('totalProducts').textContent = products.length;
+            
+            const pendingOrders = orders.filter(o => o.status === 'pending').length;
+            document.getElementById('pendingOrders').textContent = pendingOrders;
+            document.getElementById('totalOrders').textContent = orders.length;
+            
+            const totalRevenue = orders.reduce((sum, o) => sum + (o.total || 0), 0);
+            document.getElementById('totalRevenue').textContent = totalRevenue.toLocaleString() + ' DA';
+        }
+        
+        // ========== Export ==========
+        window.exportData = () => {
+            const data = {
+                products: products,
+                orders: orders,
+                exportDate: new Date().toISOString(),
+                totalRevenue: orders.reduce((s, o) => s + (o.total || 0), 0),
+                totalOrders: orders.length
+            };
+            
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `elegance_export_${new Date().toISOString().slice(0,19)}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+            showToast('📁 Données exportées avec succès');
+        };
+        
+        // ========== UI Helpers ==========
+        function escapeHtml(str) {
+            if (!str) return '';
+            return str.replace(/[&<>]/g, function(m) {
+                if (m === '&') return '&amp;';
+                if (m === '<') return '&lt;';
+                if (m === '>') return '&gt;';
+                return m;
+            });
+        }
+        
+        function showToast(message) {
+            const toast = document.getElementById('toastMsg');
+            const span = toast.querySelector('span');
+            if (span) span.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2500);
+        }
+        
+        window.showTab = (tab) => {
+            const tabs = document.querySelectorAll('.tab-btn');
+            const contents = document.querySelectorAll('.tab-content');
+            
+            tabs.forEach(btn => btn.classList.remove('active'));
+            contents.forEach(content => content.classList.remove('active'));
+            
+            if (tab === 'products') {
+                tabs[0].classList.add('active');
+                document.getElementById('productsTab').classList.add('active');
+            } else {
+                tabs[1].classList.add('active');
+                document.getElementById('ordersTab').classList.add('active');
+            }
+        };
+        
+        window.closeModal = (modalId) => {
+            document.getElementById(modalId).classList.remove('active');
+        };
+        
+        // ========== Formulaire ==========
+        document.getElementById('productForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const id = document.getElementById('productId').value;
+            const product = {
+                name: document.getElementById('productName').value,
+                price: parseFloat(document.getElementById('productPrice').value),
+                image: document.getElementById('productImage').value,
+                badge: document.getElementById('productBadge').value,
+                rating: parseFloat(document.getElementById('productRating').value)
+            };
+            
+            if (!product.name || !product.price || !product.image) {
+                showToast('❌ Veuillez remplir tous les champs obligatoires');
+                return;
+            }
+            
+            try {
+                if (id) {
+                    const { error } = await supabase.from('products').update(product).eq('id', id);
+                    if (error) throw error;
+                    showToast('✅ Produit modifié avec succès');
+                } else {
+                    const { error } = await supabase.from('products').insert([product]);
+                    if (error) throw error;
+                    showToast('✅ Produit ajouté avec succès');
+                }
+                
+                closeModal('productModal');
+                await loadProducts();
+            } catch (error) {
+                console.error('Erreur sauvegarde:', error);
+                showToast('❌ Erreur lors de l\'enregistrement');
+            }
+        });
+        
+        // Fermer modal en cliquant à l'extérieur
+        document.getElementById('productModal').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('productModal')) {
+                closeModal('productModal');
+            }
+        });
+        
+        // ========== Démarrage ==========
+        initSupabase();
+    </script>
 </body>
 </html>
